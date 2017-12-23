@@ -114,24 +114,31 @@ Juego.capturarMovimiento = function(tecla) {
 
   // El movimiento esta determinado por la velocidad del jugador
   if (tecla == 'izq') {
+    Jugador.cambiarHorizontal();
     movX = -velocidad;
+    Jugador.sprite = 'imagenes/auto_rojo_izquierda.png';
   }
   if (tecla == 'arriba') {
+    Jugador.cambiarVertial();
     movY = -velocidad;
+    Jugador.sprite = 'imagenes/auto_rojo_arriba.png';
   }
   if (tecla == 'der') {
+    Jugador.cambiarHorizontal();
     movX = velocidad;
+    Jugador.sprite = 'imagenes/auto_rojo_derecha.png';
   }
   if (tecla == 'abajo') {
+    Jugador.cambiarVertial();
     movY = velocidad;
+    Jugador.sprite = 'imagenes/auto_rojo_abajo.png';
   }
 
   // Si se puede mover hacia esa posicion hay que hacer efectivo este movimiento
   if (this.chequearColisiones(movX + this.jugador.x, movY + this.jugador.y)) {
     /* Aca tiene que estar la logica para mover al jugador invocando alguno
     de sus metodos  */
-
-    Jugador.mover();
+    Jugador.mover(movX,movY);
   }
 };
 
