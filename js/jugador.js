@@ -11,11 +11,11 @@ var Jugador = {
   vidas: 5,
   // Hay que agregar lo que falte al jugador: movimientos, perdida de vidas,
   // y todo lo que haga falta para que cumpla con sus responsabilidades
-  salud : 0,
   mover : function(x,y){
     this.x += x;
     this.y += y;
   },
+
   /* Estas funciones ayudarán a que cuando el auto cambie de dirección, dependiendo si es en x o en y, se adapte el ancho
     y alto para que el dibujo no tenga problemas */
   cambiarHorizontal : function(){
@@ -26,5 +26,8 @@ var Jugador = {
     this.alto = 30;
     this.ancho = 15;
   },
-  perdervida: function(){}
+
+  perdervida: function(cantVida){
+    this.vidas -= cantVida;
+  }
 }
