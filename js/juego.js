@@ -20,9 +20,20 @@ var Juego = {
   obstaculosCarretera: [
     /*Aca se van a agregar los obstaculos visibles. Tenemos una valla horizontal
     de ejemplo, pero podras agregar muchos mas. */
-    new Obstaculo('imagenes/valla_horizontal.png', 70, 430, 30, 30, 1),
-    new Obstaculo('imagenes/valla_horizontal.png', 90, 430, 30, 30, 1)
-
+    new Obstaculo('imagenes/valla_horizontal.png', 170, 100, 30, 30, 1),
+    new Obstaculo('imagenes/valla_horizontal.png', 140, 100, 30, 30, 1),
+    new Obstaculo('imagenes/auto_verde_abajo.png', 180, 230, 15, 30, 1),
+    new Obstaculo('imagenes/valla_horizontal.png', 70, 450, 30, 30, 1),
+    new Obstaculo('imagenes/valla_horizontal.png', 100, 450, 30, 30, 1),
+    new Obstaculo('imagenes/valla_horizontal.png', 130, 450, 30, 30, 1),
+    new Obstaculo('imagenes/bache.png', 300, 490, 20, 30, 1),    
+    new Obstaculo('imagenes/auto_verde_derecha.png', 380, 470, 30, 15, 1),
+    new Obstaculo('imagenes/valla_vertical.png', 500, 450, 30, 30, 1),
+    new Obstaculo('imagenes/valla_vertical.png', 500, 480, 30, 30, 1),
+    new Obstaculo('imagenes/valla_horizontal.png', 530, 420, 30, 30, 1),
+    new Obstaculo('imagenes/bache.png', 520, 125, 20, 30, 1),    
+    new Obstaculo('imagenes/auto_verde_abajo.png', 860, 380, 15, 30, 1),    
+    new Obstaculo('imagenes/bache.png', 810, 410, 20, 30, 1)      
   ],
   /* Estos son los bordes con los que se puede chocar, por ejemplo, la vereda.
    Ya estan ubicados en sus lugares correspondientes. Ya aparecen en el mapa, ya
@@ -73,7 +84,8 @@ Juego.iniciarRecursos = function() {
     'imagenes/auto_rojo_derecha.png',
     'imagenes/auto_rojo_izquierda.png',
     'imagenes/auto_verde_abajo.png',
-    'imagenes/auto_verde_derecha.png'
+    'imagenes/auto_verde_derecha.png',
+    'imagenes/cartel.png'
   ]);
   Resources.onReady(this.comenzar.bind(Juego));
 };
@@ -154,6 +166,7 @@ Juego.dibujar = function() {
   utilizando al dibujante y los metodos que nos brinda.
   "Dibujante dibuja al jugador" */
   Dibujante.dibujarEntidad(Jugador);
+  Dibujante.dibujarImagen('imagenes/cartel.png',775,530,100,30);
 
   // Se recorren los obstaculos de la carretera pintandolos
   this.obstaculosCarretera.forEach(function(obstaculo) {
@@ -173,6 +186,7 @@ Juego.dibujar = function() {
     Dibujante.dibujarRectangulo('red', x, 0, tamanio, 8);
   }
 };
+
 
 
 
@@ -271,3 +285,4 @@ document.addEventListener('keydown', function(e) {
 
   Juego.capturarMovimiento(allowedKeys[e.keyCode]);
 });
+
