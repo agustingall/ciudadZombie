@@ -27,7 +27,7 @@ var Jugador = {
     this.ancho = 15;
   },
 
-  perdervida: function(cantVida){
+  perdervidas: function(cantVida){
     this.vidas -= cantVida;
   }
 }
